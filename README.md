@@ -4,7 +4,7 @@
 
 - **2026 challenge:** #11 Interplanetary Survival Guide: Martian Map (2026 NASA Space Apps Challenges)
 - **Live demo:** https://cosmic84.tahmid-hasan-rafi.com
-- **240-second video:** _add the YouTube / Drive link here_
+- **240-second video:** https://www.youtube.com/watch?v=sZU_zfGhvK4
 
 SafeSol plans a drive across real Mars terrain and answers the question every surface crew will face:
 *if a solar storm alert arrives right now, where do we go, and can we get there in time?*
