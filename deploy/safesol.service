@@ -1,0 +1,33 @@
+# /etc/systemd/system/safesol.service
+[Unit]
+Description=SafeSol API and web app (NASA Space Apps 2026, team Cosmic84)
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/safesol
+Environment=OFFLINE=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+# Listens on localhost only; nginx is the only way in from outside.
+ExecStart=/opt/safesol/.venv/bin/uvicorn src.api.main:app --host 127.0.0.1 --port 8020 --workers 2 --proxy-headers --no-server-header
+Restart=always
+RestartSec=3
+
+# Hardening: the app only reads its own files and never needs more rights.
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+MemoryMax=1G
+
+[Install]
+WantedBy=multi-user.target

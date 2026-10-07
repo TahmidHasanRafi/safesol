@@ -1,0 +1,64 @@
+{
+  "name": "Jezero Crater",
+  "synthetic": false,
+  "width": 801,
+  "height": 801,
+  "res_m": 25.0,
+  "center_lonlat": [
+    77.5804431794507,
+    18.37983790888568
+  ],
+  "corners_lonlat": [
+    [
+      77.40222345351053,
+      18.548965722588285
+    ],
+    [
+      77.75821846717155,
+      18.548965722588285
+    ],
+    [
+      77.75821846717155,
+      18.21113186030453
+    ],
+    [
+      77.40222345351053,
+      18.21113186030453
+    ]
+  ],
+  "elevation_range_m": [
+    -2735.02294921875,
+    -2368.523681640625
+  ],
+  "crs": "Local equirectangular 18.380N 77.580E",
+  "source": {
+    "file": "jezero_dem.tif",
+    "crs": "Mars (2015) - Sphere / Ocentric / Equirectangular, clon = 0",
+    "native_pixel_m": [
+      20.369,
+      20.369
+    ],
+    "product": "G14_023524_1985_XN_18N282W__G13_023379_1985_XN_18N282W"
+  },
+  "provenance": {
+    "dataset": "MRO CTX controlled DTM (USGS Astrogeology Analysis Ready Data)",
+    "collection": "mro_ctx_controlled_usgs_dtms",
+    "item_id": "G14_023524_1985_XN_18N282W__G13_023379_1985_XN_18N282W",
+    "stac_search": "https://stac.astrogeology.usgs.gov/api/search",
+    "dtm_href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/ctx/controlled/usgs/G14_023524_1985_XN_18N282W__G13_023379_1985_XN_18N282W/G14_023524_1985_XN_18N282W__G13_023379_1985_XN_18N282W_dtm.tif",
+    "orthoimage_href": "https://astrogeo-ard.s3-us-west-2.amazonaws.com/mars/mro/ctx/controlled/usgs/G14_023524_1985_XN_18N282W__G13_023379_1985_XN_18N282W/G14_023524_1985_XN_18N282W__G13_023379_1985_XN_18N282W_orthoimage.tif",
+    "mission": "NASA Mars Reconnaissance Orbiter, Context Camera (CTX)",
+    "center_lonlat": [
+      77.58,
+      18.38
+    ],
+    "half_size_km": 10.0
+  },
+  "attribution": "Terrain: MRO CTX controlled DTM (USGS Astrogeology Analysis Ready Data) (G14_023524_1985_XN_18N282W__G13_023379_1985_XN_18N282W)",
+  "basemap": "MRO CTX orthoimage (USGS Astrogeology ARD) jezero_ortho.tif",
+  "svf": {
+    "radius_m": 1500.0,
+    "azimuths": 16
+  },
+  "generated_utc": "2026-10-07T11:59:37+00:00"
+}

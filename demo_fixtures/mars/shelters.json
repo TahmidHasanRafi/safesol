@@ -1,0 +1,133 @@
+[
+  {
+    "id": "habitat",
+    "name": "Habitat storm shelter",
+    "type": "habitat",
+    "x": 9.304582541470154,
+    "y": 1089471.832576596,
+    "shielding": 1.0,
+    "note": "Assumed full storm shelter at a position chosen by the team.",
+    "lon": 77.580221,
+    "lat": 18.380049
+  },
+  {
+    "id": "T1",
+    "name": "Terrain shelter T1",
+    "type": "terrain",
+    "x": 7784.30458254147,
+    "y": 1098471.832576596,
+    "shielding": 0.554,
+    "lon": 77.718441,
+    "lat": 18.531884
+  },
+  {
+    "id": "T2",
+    "name": "Terrain shelter T2",
+    "type": "terrain",
+    "x": -8940.69541745853,
+    "y": 1090871.832576596,
+    "shielding": 0.403,
+    "lon": 77.421112,
+    "lat": 18.403668
+  },
+  {
+    "id": "T3",
+    "name": "Terrain shelter T3",
+    "type": "terrain",
+    "x": -5390.69541745853,
+    "y": 1095771.832576596,
+    "shielding": 0.374,
+    "lon": 77.484222,
+    "lat": 18.486334
+  },
+  {
+    "id": "T4",
+    "name": "Terrain shelter T4",
+    "type": "terrain",
+    "x": -8315.69541745853,
+    "y": 1098871.832576596,
+    "shielding": 0.341,
+    "lon": 77.432223,
+    "lat": 18.538632
+  },
+  {
+    "id": "T5",
+    "name": "Terrain shelter T5",
+    "type": "terrain",
+    "x": -8240.69541745853,
+    "y": 1091221.832576596,
+    "shielding": 0.316,
+    "lon": 77.433556,
+    "lat": 18.409572
+  },
+  {
+    "id": "T6",
+    "name": "Terrain shelter T6",
+    "type": "terrain",
+    "x": 7634.30458254147,
+    "y": 1097671.832576596,
+    "shielding": 0.299,
+    "lon": 77.715775,
+    "lat": 18.518388
+  },
+  {
+    "id": "T7",
+    "name": "Terrain shelter T7",
+    "type": "terrain",
+    "x": -3340.69541745853,
+    "y": 1079946.832576596,
+    "shielding": 0.298,
+    "lon": 77.520666,
+    "lat": 18.219356
+  },
+  {
+    "id": "T8",
+    "name": "Terrain shelter T8",
+    "type": "terrain",
+    "x": -8290.69541745853,
+    "y": 1096096.832576596,
+    "shielding": 0.294,
+    "lon": 77.432667,
+    "lat": 18.491817
+  },
+  {
+    "id": "T9",
+    "name": "Terrain shelter T9",
+    "type": "terrain",
+    "x": -8090.69541745853,
+    "y": 1095221.832576596,
+    "shielding": 0.275,
+    "lon": 77.436223,
+    "lat": 18.477055
+  },
+  {
+    "id": "T10",
+    "name": "Terrain shelter T10",
+    "type": "terrain",
+    "x": -7615.69541745853,
+    "y": 1098821.832576596,
+    "shielding": 0.263,
+    "lon": 77.444667,
+    "lat": 18.537789
+  },
+  {
+    "id": "T11",
+    "name": "Terrain shelter T11",
+    "type": "terrain",
+    "x": -3840.69541745853,
+    "y": 1091471.832576596,
+    "shielding": 0.247,
+    "lon": 77.511777,
+    "lat": 18.41379
+  },
+  {
+    "id": "T12",
+    "name": "Terrain shelter T12",
+    "type": "terrain",
+    "x": -8065.69541745853,
+    "y": 1092421.832576596,
+    "shielding": 0.246,
+    "lon": 77.436667,
+    "lat": 18.429817
+  }
+]

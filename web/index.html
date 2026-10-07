@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SafeSol: Mars traverse and solar storm shelter planner</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☢</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="vendor/maplibre-gl.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="bar">
+    <h1 class="brand">SafeSol</h1>
+    <p class="region" id="region">Loading terrain…</p>
+    <span class="source-tag" id="sourceTag" title="Where the terrain was read from"></span>
+    <p class="badge" id="dataBadge" hidden>Synthetic test terrain. Replace with a NASA Mars Trek DEM before the demo.</p>
+  </header>
+
+  <main class="layout">
+    <aside class="panel left" aria-label="Route and assumptions">
+      <section>
+        <h2>Route</h2>
+        <div class="buttons">
+          <button id="btnDraw" class="primary">Draw route</button>
+          <button id="btnFinish" disabled>Finish route</button>
+          <button id="btnClear" disabled>Clear</button>
+        </div>
+        <p class="hint" id="drawHint">Click points on the map, then press Finish route or double-click.</p>
+        <button id="btnContingency" class="wide" disabled>Suggest safe route</button>
+      </section>
+
+      <section>
+        <h2>Vehicle assumptions</h2>
+        <label class="field">Preset
+          <select id="preset">
+            <option value="crewed">Crewed pressurized rover</option>
+            <option value="robotic">Robotic rover</option>
+          </select>
+        </label>
+        <div class="grid2">
+          <label class="field">Mass (kg)<input type="number" id="mass_kg" min="1" step="1"></label>
+          <label class="field">Speed (m/s)<input type="number" id="speed_m_s" min="0.001" step="0.01"></label>
+          <label class="field">Slope limit (°)<input type="number" id="slope_limit_deg" min="1" max="45" step="0.5"></label>
+          <label class="field">Base power (W)<input type="number" id="base_power_w" min="0" step="10"></label>
+          <label class="field">Energy per sol (Wh)<input type="number" id="energy_per_sol_wh" min="1" step="100"></label>
+          <label class="field">Driving h per sol<input type="number" id="drive_hours_per_sol" min="0.5" max="24" step="0.5"></label>
+        </div>
+        <label class="field">Sampling spacing (m)<input type="number" id="spacing" min="5" step="5" value="25"></label>
+        <p class="hint">All values are modelling assumptions, not specifications of a real NASA vehicle. Mars gravity 3.72 m/s².</p>
+      </section>
+
+      <section>
+        <h2>Map layers</h2>
+        <label class="check"><input type="checkbox" id="layerHazard" checked> Terrain steeper than the slope limit</label>
+        <label class="check"><input type="checkbox" id="layerShield"> Shielding from terrain</label>
+        <label class="check"><input type="checkbox" id="layerShelters" checked> Shelters</label>
+      </section>
+    </aside>
+
+    <div class="mapwrap">
+      <div id="map" aria-label="Mars terrain map"></div>
+      <div id="alert" class="alert" role="alert" hidden></div>
+    </div>
+
+    <aside class="panel right" aria-label="Survival card and solar storm">
+      <section id="card" class="card">
+        <h2>Survival card</h2>
+        <p class="empty">Draw a route to see distance, time, energy and whether the vehicle can drive it.</p>
+      </section>
+
+      <section class="storm">
+        <h2>Solar storm drill</h2>
+        <label class="field">Event
+          <select id="stormEvent"></select>
+        </label>
+        <label class="field">Warning time: <strong id="warnOut">30 min</strong>
+          <input type="range" id="warning" min="5" max="180" step="5" value="30">
+        </label>
+        <label class="field">Vehicle position on route: <strong id="posOut">50%</strong>
+          <input type="range" id="position" min="0" max="100" step="1" value="50">
+        </label>
+        <button id="btnStorm" class="storm-btn wide" disabled>Trigger storm alert</button>
+        <button id="btnStormClear" class="wide" hidden>Clear storm</button>
+      </section>
+
+      <section class="sources">
+        <details id="provenance">
+          <summary>Data sources and raw records</summary>
+          <div id="provBody"><p class="note">Loading…</p></div>
+        </details>
+      </section>
+    </aside>
+
+    <section class="profile" aria-label="Elevation profile">
+      <canvas id="profile"></canvas>
+      <p class="empty" id="profileEmpty">The elevation profile appears here. Segments over the slope limit turn red.</p>
+    </section>
+  </main>
+
+  <script src="vendor/maplibre-gl.js"></script>
+  <script src="vendor/chart.umd.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
