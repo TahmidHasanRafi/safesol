@@ -99,6 +99,10 @@ The repository ships with **real NASA data** in `demo_fixtures/`, so the app sta
 - `demo_fixtures/storms.json`: 24 real Solar Energetic Particle events from NASA DONKI
   (September 2017 and May 2024); the unchanged API responses are in `demo_fixtures/donki_raw/`.
 
+The live demo does not call any NASA service while it runs. All NASA data was downloaded in advance
+from the sources listed below and is served from this committed copy, so the demo keeps working
+without internet access.
+
 To rebuild that data from the original sources yourself:
 
 ```bash
