@@ -1,12 +1,12 @@
-"""Prepare the regional terrain cache from a NASA Mars Trek DEM (run before the event).
+"""Prepare the regional terrain cache from a NASA Mars elevation model (run before the event).
 
     python -m src.acquire.dem --dem cache/raw/jezero_dem.tif --name "Jezero Crater"
     python -m src.acquire.dem --dem cache/raw/jezero_dem.tif --ortho cache/raw/jezero_ortho.tif
     python -m src.acquire.dem --dem cache/raw/jezero_dem.tif --bbox 77.2 18.2 77.8 18.7
     python -m src.acquire.dem --synthetic            # test terrain, clearly flagged in the app
 
-Real terrain is easiest to get with `python -m src.acquire.ctx_dtm` (USGS Astrogeology CTX DTM),
-or download a GeoTIFF from NASA Mars Trek by hand.
+SafeSol uses the NASA MRO CTX controlled DTM and orthoimage, published by USGS Astrogeology and
+downloaded with `python -m src.acquire.ctx_dtm`. A GeoTIFF exported from NASA Mars Trek also works.
 
 Steps:
  1. Reproject the DEM into a local equirectangular projection centred on the region, so one
@@ -14,7 +14,7 @@ Steps:
     east-west distances by 1/cos(latitude), about 5% at Jezero).
  2. Resample by area averaging to the target cell size and save as a Cloud Optimized GeoTIFF.
  3. Compute the sky-view shielding index and pick terrain shelters.
- 4. Render the basemap (Mars Trek orthoimage if given, otherwise a hillshade) and overlays.
+ 4. Render the basemap (the orthoimage if given, otherwise a hillshade) and overlays.
 
 Output: cache/mars/  dem.tif  shielding.tif  basemap.png  shielding.png  shelters.json  meta.json
 """
@@ -152,11 +152,11 @@ def dust_tint(gray01, valid):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--dem", type=Path, help="DEM GeoTIFF downloaded from NASA Mars Trek")
-    ap.add_argument("--ortho", type=Path, help="optional orthoimage GeoTIFF from Mars Trek for the basemap")
+    ap.add_argument("--dem", type=Path, help="DEM GeoTIFF: the MRO CTX DTM from src.acquire.ctx_dtm, or a NASA Mars Trek export")
+    ap.add_argument("--ortho", type=Path, help="optional orthoimage GeoTIFF of the same product, used for the basemap")
     ap.add_argument("--synthetic", action="store_true", help="build from a synthetic test crater instead")
     ap.add_argument("--name", default="Jezero Crater")
-    ap.add_argument("--product", default="", help="Mars Trek product name, recorded in meta.json for citation")
+    ap.add_argument("--product", default="", help="product id of the DEM, recorded in meta.json for citation")
     ap.add_argument("--res", type=float, default=25.0, help="cell size in metres (default 25)")
     ap.add_argument("--bbox", type=float, nargs=4, metavar=("LONMIN", "LATMIN", "LONMAX", "LATMAX"))
     ap.add_argument("--max-cells", type=int, default=1200)
